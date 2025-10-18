@@ -1,0 +1,17 @@
+# Hard scenario - много препятствий
+
+environment:
+  area_size: 1.0
+  n_obstacles: 10                      # Много препятствий
+  obstacle_radius_range: [0.05, 0.15]  # Разные размеры
+  max_episode_steps: 500
+  agent_max_speed: 0.02
+  agent_max_accel: 0.002
+  agent_radius: 0.01
+  target_speed: 0.012                  # Быстрее двигается цель
+  interception_radius: 0.03
+  collision_penalty: -15.0             # Больший штраф
+  time_penalty: -0.01
+  success_reward: 150.0                # Больше награды
+  seed: 42
+

@@ -1,0 +1,17 @@
+# Easy scenario - мало препятствий, большая область
+
+environment:
+  area_size: 1.0
+  n_obstacles: 3                      # Мало препятствий
+  obstacle_radius_range: [0.04, 0.08] # Маленькие препятствия
+  max_episode_steps: 500
+  agent_max_speed: 0.02
+  agent_max_accel: 0.002
+  agent_radius: 0.01
+  target_speed: 0.01
+  interception_radius: 0.03
+  collision_penalty: -10.0
+  time_penalty: -0.01
+  success_reward: 100.0
+  seed: 42
+

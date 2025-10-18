@@ -1,0 +1,28 @@
+# Конфигурация PPO алгоритма
+
+algorithm:
+  name: "PPO"
+  
+  # Архитектура нейронной сети
+  hidden_dim: 64                    # Размер скрытого слоя
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003             # Learning rate
+  gamma: 0.99                       # Discount factor
+  gae_lambda: 0.95                  # GAE lambda параметр
+  
+  # PPO специфичные параметры
+  clip_coef: 0.2                    # Clipping коэффициент для PPO
+  vf_coef: 0.5                      # Коэффициент value function loss
+  ent_coef: 0.01                    # Коэффициент entropy loss
+  max_grad_norm: 0.5                # Максимальная норма градиента
+  
+  # Параметры обучения
+  total_timesteps: 100000           # Общее количество шагов обучения
+  num_steps: 2048                   # Количество шагов на rollout
+  batch_size: 64                    # Размер батча для обучения
+  num_epochs: 10                    # Количество эпох обучения на rollout
+  
+  # Device
+  device: "cpu"                     # "cpu" или "cuda"
+

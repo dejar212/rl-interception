@@ -1,0 +1,18 @@
+# Конфигурация для быстрого теста
+
+algorithm:
+  name: "PPO"
+  hidden_dim: 32
+  learning_rate: 0.0003
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_coef: 0.2
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  total_timesteps: 5000          # Меньше для быстрого теста
+  num_steps: 512                 # Меньше для быстрого теста
+  batch_size: 64
+  num_epochs: 4                  # Меньше для быстрого теста
+  device: "cpu"
+

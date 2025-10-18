@@ -1,0 +1,34 @@
+# Конфигурация DQN алгоритма
+
+algorithm:
+  name: "DQN"
+  
+  # Архитектура нейронной сети
+  hidden_dim: 128                   # Размер скрытого слоя
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.001              # Learning rate
+  gamma: 0.99                       # Discount factor
+  
+  # DQN специфичные параметры
+  epsilon_start: 1.0                # Начальный epsilon для exploration
+  epsilon_end: 0.05                 # Конечный epsilon
+  epsilon_decay: 0.995              # Decay factor для epsilon
+  tau: 1.0                          # Soft update (1.0 = hard update)
+  target_update_frequency: 1000     # Частота обновления target network
+  
+  # Дискретизация action space
+  n_discrete_actions: 5             # Количество дискретных значений на размерность
+  
+  # Replay buffer
+  buffer_size: 100000               # Размер replay buffer
+  batch_size: 128                   # Размер батча для обучения
+  
+  # Параметры обучения
+  total_timesteps: 100000           # Общее количество шагов обучения
+  learning_starts: 1000             # Шагов до начала обучения
+  train_frequency: 4                # Частота обновления (каждый N шагов)
+  
+  # Device
+  device: "cpu"                     # "cpu" или "cuda"
+

@@ -1,0 +1,32 @@
+# Конфигурация TD3 алгоритма
+
+algorithm:
+  name: "TD3"
+  
+  # Архитектура нейронной сети
+  hidden_dim: 256                   # Размер скрытого слоя
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003             # Learning rate
+  gamma: 0.99                       # Discount factor
+  tau: 0.005                        # Soft update coefficient
+  
+  # TD3 специфичные параметры
+  policy_noise: 0.2                 # Noise добавляемый к target policy
+  noise_clip: 0.5                   # Диапазон для clipping noise
+  policy_delay: 2                   # Задержка обновления policy
+  exploration_noise: 0.1            # Exploration noise
+  max_action: 1.0                   # Максимальное значение действия
+  
+  # Replay buffer
+  buffer_size: 1000000              # Размер replay buffer
+  batch_size: 256                   # Размер батча для обучения
+  
+  # Параметры обучения
+  total_timesteps: 100000           # Общее количество шагов обучения
+  learning_starts: 1000             # Шагов до начала обучения
+  train_frequency: 1                # Частота обновления (каждый N шагов)
+  
+  # Device
+  device: "cpu"                     # "cpu" или "cuda"
+
