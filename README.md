@@ -44,23 +44,41 @@ rl-interception/
 
 ## Быстрый старт
 
-### Обучение агента
+### Полный эксперимент (рекомендуется)
+
+```bash
+# Запустить полный эксперимент сравнения всех алгоритмов
+./run_full_experiment.sh
+
+# Или вручную:
+# 1. Обучить все алгоритмы параллельно
+python3 experiments/parallel_train.py --algorithms ppo sac td3 dqn
+
+# 2. Протестировать на 100 средах
+python3 experiments/test_on_suite.py \
+  --models-info results/parallel_training/*/trained_models.json \
+  --test-suite configs/test_suite.json
+```
+
+См. [EXPERIMENT_GUIDE.md](./EXPERIMENT_GUIDE.md) для подробностей.
+
+### Обучение одного агента
 
 ```bash
 # PPO
-python3 experiments/train.py --algo-config configs/ppo_config.yaml
+python3 experiments/train.py --algo-config configs/balanced_ppo.yaml
 
-# Для других алгоритмов используйте их конфиги
-python3 experiments/train.py --algo-config configs/sac_config.yaml
+# Для других алгоритмов
+python3 experiments/train.py --algo-config configs/balanced_sac.yaml
 ```
 
 ### Оценка обученной модели
 
 ```bash
 python3 experiments/evaluate.py \
-  --model results/ppo_TIMESTAMP/models/ppo_model.pth \
+  --model results/ppo_*/models/ppo_model.pth \
   --agent-type ppo \
-  --algo-config configs/ppo_config.yaml \
+  --algo-config configs/balanced_ppo.yaml \
   --n-episodes 100 \
   --deterministic
 ```

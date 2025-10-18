@@ -1,0 +1,31 @@
+# Сбалансированная конфигурация TD3 для честного сравнения
+
+algorithm:
+  name: "TD3"
+  
+  # Архитектура - одинаковая для всех
+  hidden_dim: 128                   # Единый размер
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003
+  gamma: 0.99
+  tau: 0.005
+  
+  # TD3 специфичные
+  policy_noise: 0.2
+  noise_clip: 0.5
+  policy_delay: 2
+  exploration_noise: 0.1
+  max_action: 1.0
+  
+  # Replay buffer
+  buffer_size: 100000               # Оптимизировано
+  batch_size: 128                   # Увеличен
+  
+  # Параметры обучения
+  total_timesteps: 200000           # Одинаково для всех
+  learning_starts: 5000             # Меньше
+  train_frequency: 1
+  
+  device: "cpu"
+

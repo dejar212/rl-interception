@@ -1,0 +1,27 @@
+# Сбалансированная конфигурация PPO для честного сравнения
+
+algorithm:
+  name: "PPO"
+  
+  # Архитектура - одинаковая для всех
+  hidden_dim: 128                   # Единый размер для всех алгоритмов
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003
+  gamma: 0.99
+  gae_lambda: 0.95
+  
+  # PPO специфичные
+  clip_coef: 0.2
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  
+  # Параметры обучения - настроены для ~200K timesteps
+  total_timesteps: 200000           # Одинаково для всех
+  num_steps: 2048                   # Rollout size
+  batch_size: 64
+  num_epochs: 10
+  
+  device: "cpu"
+

@@ -1,0 +1,33 @@
+# Сбалансированная конфигурация DQN для честного сравнения
+
+algorithm:
+  name: "DQN"
+  
+  # Архитектура - одинаковая для всех
+  hidden_dim: 128                   # Единый размер
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003             # Уменьшен для стабильности
+  gamma: 0.99
+  
+  # DQN специфичные
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 0.9995             # Более медленное затухание
+  tau: 0.005                        # Soft update вместо hard
+  target_update_frequency: 500      # Реже обновляем
+  
+  # Дискретизация
+  n_discrete_actions: 7             # Больше действий для точности
+  
+  # Replay buffer
+  buffer_size: 100000
+  batch_size: 128
+  
+  # Параметры обучения
+  total_timesteps: 200000           # Одинаково для всех
+  learning_starts: 5000
+  train_frequency: 4
+  
+  device: "cpu"
+
