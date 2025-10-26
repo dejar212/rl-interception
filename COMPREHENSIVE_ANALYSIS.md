@@ -28,8 +28,8 @@ This comprehensive analysis evaluates the performance of six modern Reinforcemen
 | **TD3** | 13% | -116.8 | 50% | 0.681 | 532.2 |
 | **PPO** | 2% | -62.4 | 32% | 0.636 | 587.8 |
 | **DQN** | 4% | -371.4 | 70% | 0.728 | 576.9 |
-| **A2C** | TBD | TBD | TBD | TBD | TBD |
-| **DDPG** | TBD | TBD | TBD | TBD | TBD |
+| **DDPG** ✅ | **4%** | TBD | TBD | TBD | ~500 |
+| **A2C** | ⏳ Pending | TBD | TBD | TBD | TBD |
 
 ### Key Findings
 
