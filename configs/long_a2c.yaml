@@ -1,0 +1,23 @@
+# Длительное обучение A2C - 1M timesteps
+
+algorithm:
+  name: "A2C"
+  
+  # Увеличенная архитектура для лучшего обучения
+  hidden_dim: 256                   # Увеличено с 128
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003
+  gamma: 0.99
+  
+  # A2C специфичные
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  
+  # Параметры обучения - 1M timesteps
+  total_timesteps: 1000000          # Увеличено с 200K
+  num_steps: 5                      # Rollout size
+  
+  device: "cpu"
+

@@ -1,0 +1,28 @@
+# Длительное обучение DDPG - 1M timesteps
+
+algorithm:
+  name: "DDPG"
+  
+  # Увеличенная архитектура для лучшего обучения
+  hidden_dim: 256                   # Увеличено с 128
+  
+  # Гиперпараметры обучения
+  actor_learning_rate: 0.0003
+  critic_learning_rate: 0.0003
+  gamma: 0.99
+  tau: 0.005                        # Soft update coefficient
+  
+  # Buffer
+  buffer_size: 1000000
+  batch_size: 256                   # Увеличено для лучшего обучения
+  
+  # Training
+  total_timesteps: 1000000          # Увеличено с 200K
+  learning_starts: 1000
+  train_freq: 1
+  
+  # Exploration
+  exploration_noise: 0.1
+  
+  device: "cpu"
+

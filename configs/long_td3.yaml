@@ -1,0 +1,32 @@
+# Длительное обучение TD3 - 1M timesteps
+
+algorithm:
+  name: "TD3"
+  
+  # Увеличенная архитектура для лучшего обучения
+  hidden_dim: 256                   # Увеличено с 128
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003
+  gamma: 0.99
+  tau: 0.005
+  
+  # TD3 специфичные
+  policy_noise: 0.2
+  noise_clip: 0.5
+  policy_delay: 2
+  exploration_noise: 0.1
+  max_action: 1.0
+  
+  # Replay buffer - увеличен для 1M timesteps
+  buffer_size: 500000               # Увеличено для длительного обучения
+  batch_size: 256                   # Увеличен для стабильности
+  
+  # Параметры обучения
+  total_timesteps: 1000000          # Увеличено с 200K
+  learning_starts: 10000            # Больше прогрева
+  train_frequency: 1
+  
+  device: "cpu"
+
+

@@ -22,6 +22,24 @@ from visualization import (
 import matplotlib.pyplot as plt
 
 
+def convert_numpy_types(obj):
+    """Convert numpy types to Python native types for JSON serialization"""
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.bool_):
+        return bool(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    else:
+        return obj
+
+
 def load_agent(
     agent_type: str,
     model_path: str,
@@ -251,7 +269,7 @@ def main():
     
     results_path = output_dir / "detailed_results.json"
     with open(results_path, 'w') as f:
-        json.dump(all_results, f, indent=2)
+        json.dump(convert_numpy_types(all_results), f, indent=2)
     
     print(f"Detailed results saved to: {results_path}")
     
@@ -269,7 +287,7 @@ def main():
     
     summary_path = output_dir / "summary.json"
     with open(summary_path, 'w') as f:
-        json.dump(aggregated, f, indent=2)
+        json.dump(convert_numpy_types(aggregated), f, indent=2)
     
     print(f"Summary saved to: {summary_path}")
     

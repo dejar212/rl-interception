@@ -1,0 +1,34 @@
+# Длительное обучение DQN - 1M timesteps
+
+algorithm:
+  name: "DQN"
+  
+  # Увеличенная архитектура для лучшего обучения
+  hidden_dim: 256                   # Увеличено с 128
+  
+  # Гиперпараметры обучения
+  learning_rate: 0.0003
+  gamma: 0.99
+  
+  # DQN специфичные
+  epsilon_start: 1.0
+  epsilon_end: 0.01                 # Больше exploration в конце
+  epsilon_decay: 0.9999             # Более медленное затухание для 1M
+  tau: 0.005
+  target_update_frequency: 1000     # Реже для стабильности
+  
+  # Дискретизация
+  n_discrete_actions: 9             # Еще больше действий (9x9=81)
+  
+  # Replay buffer - увеличен для 1M timesteps
+  buffer_size: 500000               # Увеличено для длительного обучения
+  batch_size: 256                   # Увеличен для стабильности
+  
+  # Параметры обучения
+  total_timesteps: 1000000          # Увеличено с 200K
+  learning_starts: 10000            # Больше прогрева
+  train_frequency: 4
+  
+  device: "cpu"
+
+

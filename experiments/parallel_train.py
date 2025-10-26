@@ -30,6 +30,7 @@ def train_algorithm_subprocess(
         "experiments/train.py",
         "--env-config", env_config_path,
         "--algo-config", algo_config_path,
+        "--algo", algo_name.lower(),
         "--seed", str(seed),
         "--output-dir", str(algo_output_dir),
     ]
